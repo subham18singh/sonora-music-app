@@ -33,7 +33,12 @@ async function registerUser(req,res){
         role : user.role
     },process.env.JWT_SECRET)
 
-    res.cookie("token",token)
+    res.cookie("token", token, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 7 * 24 * 60 * 60 * 1000
+    })
 
     res.status(200).json({
         message : "User Rsgistered succesfully",
@@ -73,7 +78,12 @@ async function loginUser(req,res){
         role : user.role
     },process.env.JWT_SECRET)
 
-    res.cookie("token",token)
+    res.cookie("token", token, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 7 * 24 * 60 * 60 * 1000
+    })
 
     res.status(200).json({
         message : "User Logged in successfully",
@@ -88,7 +98,11 @@ async function loginUser(req,res){
 }
 
 async function logoutUser(req,res){
-    res.clearCookie("token");
+    res.clearCookie("token", {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production'
+    });
 
     res.status(200).json({
         message : "user logged out successfully"

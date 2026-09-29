@@ -4,6 +4,7 @@ const authRoutes = require('./routes/auth.routes');
 const musicRoutes = require('./routes/music.routes');
 const path = require('path')
 const app = express();
+app.set('trust proxy', 1);
 
 app.use((req,res,next)=>{
     const o = req.headers.origin;
