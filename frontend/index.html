@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app"></div>
+<footer id="player" class="player" hidden>
+  <div class="np"><div class="cv" id="pc"></div><div class="tt"><b id="pt"></b><small id="pa"></small></div></div>
+  <div class="ctl">
+    <div class="btns"><button id="prev" aria-label="Previous"></button><button id="pp" class="big" aria-label="Play or pause"></button><button id="next" aria-label="Next"></button></div>
+    <div class="bar"><span id="cur">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" aria-label="Seek"><span id="dur">0:00</span></div>
+  </div>
+  <div class="vol"><button id="mute" aria-label="Mute"></button><input type="range" id="vol" min="0" max="100" value="80" aria-label="Volume"></div>
+</footer>
+<div id="toasts"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
